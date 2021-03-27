@@ -34,7 +34,7 @@ client.connect(err => {
 
     // load all fakedata in UI
     app.get('/products',(req,res) => {
-        productsCollection.find({}).limit(20)
+        productsCollection.find({})
         .toArray( (err,documents) => {
             res.send(documents);
         })
