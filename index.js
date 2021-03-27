@@ -11,6 +11,9 @@ app.use(cors());
 
 console.log(process.env.DB_USER);
 
+app.get('/',(req,res) => {
+    res.send('hello heroku')
+})
 
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
