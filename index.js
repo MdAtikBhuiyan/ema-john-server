@@ -125,7 +125,7 @@ client.connect(err => {
             }
             else{
                res.json({
-                   message:'something went wrong'
+                   message:err
                })
             }
             
