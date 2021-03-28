@@ -88,7 +88,7 @@ const app = express()
 app.use(express.json());
 app.use(cors());
 
-const port = 5000;
+const port = 7000;
 
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
