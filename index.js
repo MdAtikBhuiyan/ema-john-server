@@ -97,25 +97,25 @@ client.connect(err => {
     const productsCollection = client.db(`${process.env.DB_NAME}`).collection(`${process.env.DB_COLLECTION}`);
     const ordersCollection = client.db(`${process.env.DB_NAME}`).collection(`${process.env.DB_ORDER}`);
 
-    app.post('/addProduct', (req, res) => {
-        const products = req.body;
-        console.log(products);
-        productsCollection.insertOne(products)
-        .then(result => {
-            console.log(result.insertedCount);
-            res.send(result.insertedCount);
-        })
-    })
+    // app.post('/addProduct', (req, res) => {
+    //     const products = req.body;
+    //     console.log(products);
+    //     productsCollection.insertOne(products)
+    //     .then(result => {
+    //         console.log(result.insertedCount);
+    //         res.send(result.insertedCount);
+    //     })
+    // })
 
     app.get('/', (req, res) => {
         res.send('hello from ema-john-server side')
     })
 
-    app.get('/test',(req,res) => {
-        res.json({
-            message:true
-        })
-    })
+    // app.get('/test',(req,res) => {
+    //     res.json({
+    //         message:true
+    //     })
+    // })
 
     app.get('/products', (req, res) => {
         productsCollection.find({})
@@ -132,28 +132,28 @@ client.connect(err => {
         })
     })
 
-    app.get('/product/:key', (req, res) => {
-        productsCollection.find({key: req.params.key})
-        .toArray((err, documents) =>{
-            res.send(documents[0]);
-        })
-    })
+    // app.get('/product/:key', (req, res) => {
+    //     productsCollection.find({key: req.params.key})
+    //     .toArray((err, documents) =>{
+    //         res.send(documents[0]);
+    //     })
+    // })
 
-    app.post('/productByKeys', (req, res) => {
-        const productKeys = req.body;
-        productsCollection.find({key: {$in: productKeys}})
-        .toArray((err, documents) =>{
-            res.send(documents);
-        })
-    })
+    // app.post('/productByKeys', (req, res) => {
+    //     const productKeys = req.body;
+    //     productsCollection.find({key: {$in: productKeys}})
+    //     .toArray((err, documents) =>{
+    //         res.send(documents);
+    //     })
+    // })
 
-    app.post('/addOrder', (req, res) => {
-        const order = req.body;
-        ordersCollection.insertOne(order)
-        .then(result => {
-            res.send(result.insertedCount > 0);
-        })
-    })
+    // app.post('/addOrder', (req, res) => {
+    //     const order = req.body;
+    //     ordersCollection.insertOne(order)
+    //     .then(result => {
+    //         res.send(result.insertedCount > 0);
+    //     })
+    // })
 
     console.log('database connected!')
 
