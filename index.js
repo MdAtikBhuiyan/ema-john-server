@@ -3,13 +3,13 @@ const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 
 require('dotenv').config()
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mzltn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://emaJohnUser:emaJohnServer81@cluster0.mzltn.mongodb.net/emaJohnStore?retryWrites=true&w=majority`;
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-console.log(process.env.DB_USER);
+// console.log(process.env.DB_USER);
 
 app.get('/',(req,res) => {
     res.send('hello heroku')
@@ -27,7 +27,7 @@ client.connect(err => {
 
         productsCollection.insertOne(products)
         .then( result => {
-            console.log(result);
+            // console.log(result);
             res.send(result.insertedCount)
         })
     })
@@ -62,7 +62,7 @@ client.connect(err => {
 
         ordersCollection.insertOne(order)
         .then( result => {
-            console.log(result);
+            // console.log(result);
             res.send(result.insertedCount > 0)
         })
     })
