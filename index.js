@@ -111,12 +111,18 @@ client.connect(err => {
         res.send('hello from ema-john-server side')
     })
 
-    app.get('/products', (req, res) => {
-        productsCollection.find({})
-        .toArray((err, documents) =>{
-            res.send(documents);
+    app.get('/test',(req,res) => {
+        res.json({
+            message:true
         })
     })
+
+    // app.get('/products', (req, res) => {
+    //     productsCollection.find({})
+    //     .toArray((err, documents) =>{
+    //         res.send(documents);
+    //     })
+    // })
 
     app.get('/product/:key', (req, res) => {
         productsCollection.find({key: req.params.key})
