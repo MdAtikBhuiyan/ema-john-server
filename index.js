@@ -145,8 +145,4 @@ client.connect(err => {
 
 });
 
-<<<<<<< HEAD
 app.listen(process.env.PORT || port);
-=======
-app.listen(process.env.PORT || port);
->>>>>>> 820ce67cb3b19bdf39d567670846abb906211ea7
